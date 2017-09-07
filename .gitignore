@@ -1,0 +1,10 @@
+
+# General Ruby, sorted by first letter.
+/.bundle/
+/vendor/bundle/
+
+# Bak/old/orig etc.
+*.old*
+*.orig
+/*.patch
+*.ref*
