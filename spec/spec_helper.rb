@@ -15,7 +15,7 @@ RSpec.configure do |config|
       d, steps = dir, []
       while d.size >= spec_root.size
         steps << d
-        d = File.join(File.split(d)[0..-2])
+        d = File.split(d).first
       end
 
       steps.reverse.each do |d|
