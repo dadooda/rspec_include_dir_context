@@ -14,7 +14,7 @@ describe "group1" do
     it { expect(demo_stuff).to eq "demo_stuff" }
   end
 
-  describe "#root_stuff" do
-    it { expect(root_stuff).to eq "root_stuff" }
+  describe "#toplevel_stuff" do
+    it { expect(toplevel_stuff).to eq "toplevel_stuff" }
   end
 end

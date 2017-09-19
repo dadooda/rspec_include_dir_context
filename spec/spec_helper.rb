@@ -21,13 +21,21 @@ RSpec.configure do |config|
       steps.reverse.each do |d|
         begin; include_context d; rescue ArgumentError; end
       end
+
+      # Include top-level contexts per sub-environment.
+      #
+      # In Rails projects we've got 2 sub-environments: plain and Rails, which share the same
+      # directory root. If we create 2 regular `__dir__` contexts at root, RSpec will overwrite one
+      # with another. Hence we use distinct special names for root contexts and load them by hand.
+      begin; include_context "spec_toplevel"; rescue ArgumentError; end
+      begin; include_context "rails_toplevel"; rescue ArgumentError; end
     end
   } # config.extend
 end
 
 # Top-level (spec root) shared context.
-shared_context __dir__ do
-  def root_stuff
-    "root_stuff"
+shared_context "spec_toplevel" do
+  def toplevel_stuff
+    "toplevel_stuff"
   end
 end
